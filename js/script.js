@@ -54,4 +54,23 @@
   } else {
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
   }
+
+  /* --- 6. Botón "volver arriba" (se crea por JS, aparece al bajar) --- */
+  var toTop = document.createElement("button");
+  toTop.className = "to-top";
+  toTop.type = "button";
+  toTop.setAttribute("aria-label", "Volver arriba");
+  toTop.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 15 12 9 18 15"/></svg>';
+  document.body.appendChild(toTop);
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function toggleToTop() {
+    if (window.scrollY > window.innerHeight * 0.9) toTop.classList.add("show");
+    else toTop.classList.remove("show");
+  }
+  window.addEventListener("scroll", toggleToTop, { passive: true });
+  toggleToTop();
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
 })();
