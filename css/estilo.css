@@ -228,6 +228,77 @@ a:hover { color: var(--orange-deep); }
 .site-foot__meta { width: 100%; border-top: 1px solid rgba(255,255,255,.14); padding-top: 1rem; font-family: var(--sans); font-size: .7rem; letter-spacing: .06em; color: #8CA0BC; }
 
 /* =========================================================
+   CONTENIDO (prosa, galerías, video, video-podcast)
+   ========================================================= */
+.prose { max-width: 72ch; font-size: 1.06rem; }
+.prose > p { margin: 0 0 1.15rem; }
+.prose h1 { font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1.1; margin: 2.2rem 0 1rem; }
+.prose h2 { font-weight: 400; font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.15; margin: 2rem 0 .8rem; }
+.prose h3 { font-family: var(--sans); font-weight: 700; font-size: 1rem; letter-spacing: .02em; margin: 1.8rem 0 .6rem; }
+.prose strong { color: var(--ink); }
+.prose em { color: var(--ink-soft); }
+.prose ul, .prose ol { margin: 0 0 1.15rem; padding-left: 1.3rem; }
+.prose li { margin: .35rem 0; }
+.prose img { border-radius: var(--radius); margin: .4rem 0; }
+.prose figure { margin: 1.6rem 0; }
+.prose figcaption { font-family: var(--sans); font-size: .78rem; color: var(--muted); margin-top: .5rem; }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+.prose blockquote { margin: 1.4rem 0; padding: .6rem 1.2rem; border-left: 3px solid var(--orange); color: var(--ink-soft); font-style: italic; }
+.prose pre { white-space: pre-wrap; font-family: var(--sans); font-size: .9rem; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.2rem; margin: 0 0 1.5rem; }
+
+.article-lead { font-size: 1.2rem; color: var(--ink-soft); margin: 0 0 1.6rem; }
+
+/* imágenes lado a lado */
+.img-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.4rem 0; }
+.img-row img { flex: 1 1 220px; margin: 0; }
+
+/* Tabla de contenido + anclas */
+.toc { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.4rem; margin: 0 0 2rem; }
+.toc h2 { font-family: var(--sans); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--navy); margin: 0 0 .7rem; }
+.toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.toc a { font-family: var(--sans); font-size: .9rem; text-decoration: none; color: var(--ink); }
+.toc a:hover { color: var(--orange-deep); }
+[id] { scroll-margin-top: 90px; }
+
+/* Galería */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: .8rem; margin: 1.6rem 0; }
+.gallery a { display: block; border-radius: var(--radius); overflow: hidden; }
+.gallery img { width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; margin: 0; transition: transform .3s; }
+.gallery a:hover img { transform: scale(1.04); }
+
+/* Video responsivo */
+.video-embed { position: relative; padding-top: 56.25%; margin: 1.6rem 0; border-radius: var(--radius); overflow: hidden; background: #000; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* Nota de fuente / archivo */
+.src-note { font-family: var(--sans); font-size: .8rem; color: var(--muted); border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1rem; }
+
+/* === Video-podcast (pxlc-*) === */
+.pxlc-temporada { margin: 2.6rem 0; }
+.pxlc-temporada-header { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+.pxlc-temporada-num { font-family: var(--serif); font-style: italic; font-size: 3.2rem; line-height: .9; color: var(--orange); flex: 0 0 auto; }
+.pxlc-tag { font-family: var(--sans); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--navy); font-weight: 700; }
+.pxlc-temporada-titulo { font-weight: 400; font-size: 1.6rem; margin: .2rem 0 .3rem; }
+.pxlc-temporada-desc { color: var(--ink-soft); margin: 0; font-size: .95rem; }
+.pxlc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 1rem; }
+.pxlc-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; text-decoration: none; color: inherit; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.pxlc-card:hover { transform: translateY(-3px); border-color: var(--orange); box-shadow: 0 12px 26px rgba(14,42,77,.14); }
+.pxlc-card-thumb { position: relative; aspect-ratio: 16 / 9; background: var(--navy-deep) center/cover; }
+.pxlc-ep-badge { position: absolute; top: .5rem; left: .5rem; font-family: var(--sans); font-size: .62rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: rgba(14,42,77,.85); color: #fff; padding: .25rem .5rem; border-radius: 2px; }
+.pxlc-play-btn { position: absolute; inset: 0; margin: auto; width: 46px; height: 46px; background: rgba(217,121,26,.92); border-radius: 50%; display: grid; place-items: center; transition: transform .2s; }
+.pxlc-play-btn svg { width: 18px; height: 18px; margin-left: 2px; }
+.pxlc-card:hover .pxlc-play-btn { transform: scale(1.12); }
+.pxlc-card-body { padding: .9rem 1rem; flex: 1; }
+.pxlc-card-title { font-family: var(--serif); font-size: 1.15rem; line-height: 1.15; margin-bottom: .3rem; }
+.pxlc-card-guest { font-family: var(--sans); font-size: .74rem; font-weight: 600; color: var(--orange-deep); margin-bottom: .4rem; }
+.pxlc-card-summary { font-size: .88rem; color: var(--ink-soft); line-height: 1.45; }
+.pxlc-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .7rem; }
+.pxlc-tag-item { font-family: var(--sans); font-size: .62rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); background: var(--surface-2); padding: .2rem .45rem; border-radius: 2px; }
+.pxlc-card-footer { display: flex; align-items: center; justify-content: space-between; padding: .7rem 1rem; border-top: 1px solid var(--line); }
+.pxlc-date { font-family: var(--sans); font-size: .7rem; color: var(--muted); }
+.pxlc-ver-link { font-family: var(--sans); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--orange-deep); }
+
+/* =========================================================
    REVEAL
    ========================================================= */
 @media (prefers-reduced-motion: no-preference) {
