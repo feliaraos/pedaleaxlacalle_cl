@@ -125,7 +125,7 @@ a:hover { color: var(--orange-deep); }
    ========================================================= */
 .layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(1.6rem, 4vw, 3.5rem); padding-block: clamp(2rem, 5vw, 3.5rem); align-items: start; }
 .content { min-width: 0; }
-.sidebar { min-width: 0; position: sticky; top: 78px; }
+.sidebar { min-width: 0; }
 
 /* =========================================================
    PORTADA — contenido principal
