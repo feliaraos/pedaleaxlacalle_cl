@@ -88,12 +88,6 @@ a:hover { color: var(--orange-deep); }
   background: linear-gradient(90deg, rgba(14,42,77,.35) 0%, rgba(14,42,77,0) 45%);
   pointer-events: none;
 }
-.banner__caption {
-  position: absolute; right: clamp(.8rem, 3vw, 2rem); bottom: clamp(.6rem, 2vw, 1.1rem);
-  font-family: var(--sans); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
-  color: #fff; background: rgba(14,42,77,.62); padding: .3rem .6rem; border-radius: 2px; backdrop-filter: blur(2px);
-}
-
 /* =========================================================
    NAV PRINCIPAL
    ========================================================= */
