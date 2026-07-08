@@ -73,4 +73,20 @@
   toTop.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
   });
+
+  /* --- 7. Lightbox: ampliar imágenes .zoomable al hacer click --- */
+  var lb = document.createElement("div");
+  lb.className = "lightbox";
+  lb.setAttribute("role", "dialog");
+  lb.setAttribute("aria-modal", "true");
+  lb.innerHTML = '<button class="lightbox__close" type="button" aria-label="Cerrar">×</button><img alt="">';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector("img");
+  function closeLb() { lb.classList.remove("open"); lbImg.removeAttribute("src"); }
+  document.addEventListener("click", function (e) {
+    var z = e.target.closest ? e.target.closest("img.zoomable") : null;
+    if (z) { lbImg.src = z.getAttribute("data-full") || z.currentSrc || z.src; lbImg.alt = z.alt || ""; lb.classList.add("open"); }
+  });
+  lb.addEventListener("click", closeLb);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
 })();
