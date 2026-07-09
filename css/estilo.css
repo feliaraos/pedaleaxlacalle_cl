@@ -383,6 +383,32 @@ a:hover { color: var(--orange-deep); }
 img.zoomable { cursor: zoom-in; transition: filter .2s; }
 img.zoomable:hover { filter: brightness(1.04); }
 
+/* Símbolo de flecha en los índices de ancla (Manuales, Opinión) */
+.toc li { position: relative; }
+.toc a::before { content: "→ "; color: var(--orange); font-weight: 700; }
+
+/* Opinión: columnas */
+.columna { border-top: 3px solid var(--line-strong); padding-top: 1.8rem; margin-top: 2.8rem; }
+.columna:first-of-type { border-top: 0; margin-top: 1rem; }
+.columna > h2 { font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.3rem); line-height: 1.12; letter-spacing: -.01em; margin: 0 0 .35rem; scroll-margin-top: 90px; }
+.col-meta { font-family: var(--sans); font-size: .76rem; letter-spacing: .05em; text-transform: uppercase; color: var(--orange-deep); margin: 0 0 1.3rem; }
+.columna .prose { max-width: 72ch; }
+.columna .prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 1.2rem 0; }
+.columna .prose figure { margin: 1.4rem 0; }
+.columna .prose figure img { margin: 0 0 .4rem; }
+.toc-year { font-family: var(--sans); font-size: .72rem; color: var(--muted); }
+
+/* Documentos: botón de descarga + miniaturas de muestra */
+.btn-doc { display: inline-flex; align-items: center; gap: .55rem; font-family: var(--sans); font-weight: 700; font-size: .8rem; letter-spacing: .03em; text-decoration: none; color: #fff; background: var(--navy); padding: .7rem 1.1rem; border-radius: var(--radius); transition: background .2s, transform .2s; margin: .3rem .6rem .3rem 0; }
+.btn-doc::before { content: "⬇"; font-size: .95em; }
+.btn-doc:hover { background: var(--orange); color: #fff; transform: translateY(-2px); }
+.btn-doc small { font-weight: 400; opacity: .82; letter-spacing: 0; }
+.btn-doc--ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--line-strong); }
+.btn-doc--ghost:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.doc-thumbs { display: flex; gap: .6rem; flex-wrap: wrap; margin: 1.1rem 0; }
+.doc-thumbs img { height: 155px; width: auto; border-radius: var(--radius); border: 1px solid var(--line-strong); }
+.doc-fuente { font-family: var(--sans); font-size: .74rem; color: var(--muted); margin-top: .6rem; }
+
 /* Recuadro de contexto / antecedente */
 .contexto { background: var(--surface); border: 1px solid var(--line-strong); border-top: 3px solid var(--navy); border-radius: var(--radius); padding: clamp(1.2rem, 3vw, 1.8rem); margin: 0 0 2.6rem; max-width: 72ch; }
 .contexto__label { font-family: var(--sans); font-weight: 700; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--orange-deep); }
