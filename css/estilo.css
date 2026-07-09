@@ -152,6 +152,14 @@ a:hover { color: var(--orange-deep); }
 .hero-feature p { color: #C6D2E2; margin: 0 0 1.4rem; }
 .hero-feature__media { background: var(--navy) center/cover; display: grid; place-items: center; position: relative; min-height: 180px; }
 .hero-feature__num { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(5rem, 12vw, 9rem); color: rgba(242,169,78,.28); line-height: 1; }
+/* 60 tachado -> 50 km/h (historia de la campaña) */
+.vmax { display: flex; align-items: center; gap: clamp(.4rem, 1.5vw, .8rem); font-family: var(--sans); padding: 1rem; }
+.vmax__old { position: relative; font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 2.7rem); color: rgba(234, 240, 247, .42); }
+.vmax__old::after { content: ""; position: absolute; left: -12%; right: -12%; top: 50%; height: 5px; background: #E0492E; transform: translateY(-50%) rotate(-16deg); border-radius: 3px; }
+.vmax__arrow { font-size: clamp(1.1rem, 3vw, 1.7rem); color: var(--orange); font-weight: 800; }
+.vmax__new { display: flex; align-items: flex-start; line-height: .85; }
+.vmax__new b { font-weight: 800; font-size: clamp(3.4rem, 10vw, 6rem); color: #fff; letter-spacing: -.02em; }
+.vmax__new span { font-size: clamp(.85rem, 2vw, 1.1rem); color: #F2A94E; font-weight: 700; margin: .35rem 0 0 .28rem; text-transform: lowercase; }
 .more-link { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--sans); font-weight: 700; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: #F2A94E; text-decoration: none; }
 .more-link:hover { color: #fff; }
 .more-link .arw { transition: transform .2s; }
