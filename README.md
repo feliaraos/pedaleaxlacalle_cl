@@ -10,13 +10,13 @@ ciudadano por la convivencia vial en Santiago de Chile (2011–2019).
 index.html        Portada-manifiesto
 historia.html     Línea de tiempo (2011–2019)
 css/estilo.css    Sistema de diseño (risográfico-editorial)
-CNAME             Dominio de GitHub Pages (rescate.pedaleaxlacalle.cl)
+CNAME             Dominio de GitHub Pages (pedaleaxlacalle.cl)
 ```
 
 ## Publicación
 
 Sitio publicado con **GitHub Pages** desde la rama `main`, sobre el dominio
-`rescate.pedaleaxlacalle.cl`.
+`pedaleaxlacalle.cl`.
 
 ## Filosofía
 
