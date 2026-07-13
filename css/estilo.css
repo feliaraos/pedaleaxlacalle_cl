@@ -387,6 +387,8 @@ a:hover { color: var(--orange-deep); }
 .medio__imgs img { width: 120px; height: auto; border-radius: var(--radius); border: 1px solid var(--line-strong); }
 .medio__nota { font-family: var(--sans); font-size: .78rem; color: var(--muted); margin-top: .7rem; display: inline-flex; gap: .4rem; }
 .medio__nota::before { content: "◔"; color: var(--orange); }
+.medio__link { font-family: var(--sans); font-size: .82rem; margin-top: .7rem; }
+.medio__link a { font-weight: 600; }
 @media (max-width: 520px) { .medio__fig { float: none; width: 200px; margin: 0 0 .8rem; } }
 img.zoomable { cursor: zoom-in; transition: filter .2s; }
 img.zoomable:hover { filter: brightness(1.04); }
