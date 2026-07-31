@@ -66,7 +66,11 @@
     else toTop.classList.remove("show");
   }
   window.addEventListener("scroll", toggleToTop, { passive: true });
-  toggleToTop();
+  /* La primera comprobación va en "load", no aquí: leer scrollY/innerHeight
+     recién insertado el botón obliga al navegador a recalcular el layout en el
+     acto (reflow forzado). Al cargar la página el scroll está en 0, que es el
+     estado con que nace el botón, así que no se ve ninguna diferencia. */
+  window.addEventListener("load", toggleToTop);
   toTop.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
   });
