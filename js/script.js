@@ -1,18 +1,15 @@
 /* =========================================================
    Pedalea X la Calle — script compartido
    Sin dependencias. Progresivo: el sitio funciona sin JS.
+
+   La cabecera aleatoria NO se sortea aquí: se elige y se precarga en el <head>
+   de cada página, para que el navegador la pida una sola vez y lo antes
+   posible (es el elemento LCP). Ver el <script> del <head> de los HTML.
    ========================================================= */
 (function () {
   "use strict";
 
-  /* --- 1. Cabecera: imagen aleatoria en cada carga --- */
-  var banner = document.getElementById("banner");
-  if (banner) {
-    var n = 1 + Math.floor(Math.random() * 3); // 1..3
-    banner.src = "img/cabecera-" + n + ".jpg";
-  }
-
-  /* --- 2. Menú móvil (abrir/cerrar) --- */
+  /* --- 1. Menú móvil (abrir/cerrar) --- */
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.getElementById("menu");
   if (toggle && menu) {
@@ -22,7 +19,7 @@
     });
   }
 
-  /* --- 3. Submenús desplegables (clic en móvil) --- */
+  /* --- 2. Submenús desplegables (clic en móvil) --- */
   document.querySelectorAll(".menu__btn").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       if (window.matchMedia("(max-width: 680px)").matches) {
@@ -36,14 +33,14 @@
     });
   });
 
-  /* --- 4. Marcar el enlace de navegación activo --- */
+  /* --- 3. Marcar el enlace de navegación activo --- */
   var here = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".menu a[href]").forEach(function (a) {
     var target = a.getAttribute("href").split("#")[0];
     if (target === here) a.setAttribute("aria-current", "page");
   });
 
-  /* --- 5. Reveal al hacer scroll --- */
+  /* --- 4. Reveal al hacer scroll --- */
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -55,7 +52,7 @@
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  /* --- 6. Botón "volver arriba" (se crea por JS, aparece al bajar) --- */
+  /* --- 5. Botón "volver arriba" (se crea por JS, aparece al bajar) --- */
   var toTop = document.createElement("button");
   toTop.className = "to-top";
   toTop.type = "button";
@@ -74,7 +71,7 @@
     window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
   });
 
-  /* --- 7. Lightbox: ampliar imágenes .zoomable al hacer click --- */
+  /* --- 6. Lightbox: ampliar imágenes .zoomable al hacer click --- */
   var lb = document.createElement("div");
   lb.className = "lightbox";
   lb.setAttribute("role", "dialog");

@@ -6,6 +6,20 @@
   <title>1er Encuentro de Movilidad Sostenible y Cultura Vial · Pedalea X la Calle</title>
   <meta name="description" content="1er Encuentro de Movilidad Sostenible y Cultura Vial — archivo histórico de Pedalea X la Calle.">
   <link rel="stylesheet" href="css/estilo.css">
+
+  <!-- Cabecera aleatoria: se elige aqui y se precarga con prioridad alta, para
+       que el navegador la pida una sola vez y lo antes posible (elemento LCP). -->
+  <script>
+    (function () {
+      var n = 1 + Math.floor(Math.random() * 3);
+      window.__cabecera = "img/cabecera-" + n + ".webp";
+      var l = document.createElement("link");
+      l.rel = "preload"; l.as = "image"; l.type = "image/webp";
+      l.href = window.__cabecera;
+      l.setAttribute("fetchpriority", "high");
+      document.head.appendChild(l);
+    })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Saltar al contenido</a>
@@ -25,9 +39,12 @@
   <header class="masthead">
     <div class="wrap">
       <a class="banner" href="index.html" aria-label="Pedalea X la Calle — inicio">
-        <img id="banner" src="img/cabecera-1.jpg" width="1144" height="292"
+        <img id="banner" width="1144" height="292" fetchpriority="high"
              alt="Pedalea X la Calle — ciclistas ocupando la calle en Santiago">
+        <noscript><img src="img/cabecera-1.webp" width="1144" height="292"
+             alt="Ciclistas ocupando la calle en Santiago"></noscript>
       </a>
+      <script>document.getElementById("banner").src = window.__cabecera;</script>
     </div>
   </header>
 
@@ -264,17 +281,17 @@
       <div class="widget">
         <h2 class="widget__title">Video / Podcast</h2>
         <a class="w-banner" href="podcast-video.html">
-          <img src="img/banner-podcast.jpg" width="284" height="163" alt="Conversaciones en video de Pedalea X la Calle">
+          <img src="img/banner-podcast.webp" width="284" height="163" decoding="async" alt="Conversaciones en video de Pedalea X la Calle">
         </a>
       </div>
       <div class="widget">
         <h2 class="widget__title">Destacados</h2>
         <div class="w-banners">
           <a class="w-banner" href="foro-convivencia-vial.html">
-            <img src="img/banner-foro.jpg" width="270" height="140" alt="Foro Convivencia Vial 2018">
+            <img src="img/banner-foro.webp" width="270" height="140" loading="lazy" decoding="async" alt="Foro Convivencia Vial 2018">
           </a>
           <a class="w-banner" href="encuentro-movilidad.html">
-            <img src="img/banner-encuentro.jpg" width="270" height="140" alt="1er Encuentro de Movilidad Sostenible y Cultura Vial">
+            <img src="img/banner-encuentro.webp" width="270" height="140" loading="lazy" decoding="async" alt="1er Encuentro de Movilidad Sostenible y Cultura Vial">
           </a>
         </div>
       </div>
@@ -300,11 +317,11 @@
       <div class="widget">
         <h2 class="widget__title">Recomendamos</h2>
         <ul class="w-allies">
-          <li><a href="https://revistapedalea.com" target="_blank" rel="noopener"><img src="img/aliado-revistapedalea.jpg" alt="Revista Pedalea"><span>Revista Pedalea</span></a></li>
-          <li><a href="http://ciclolumpen.cl" target="_blank" rel="noopener"><img src="img/aliado-ciclolumpen.jpg" alt="Ciclo Lumpen"><span>Ciclo Lumpen</span></a></li>
-          <li><a href="https://www.facebook.com/Yo-quiero-andar-en-Bicicleta-140569169340311/" target="_blank" rel="noopener"><img src="img/aliado-yoquiero.jpg" alt="Yo Quiero Andar en Bicicleta"><span>Yo Quiero Andar en Bicicleta</span></a></li>
-          <li><a href="https://bikepolo.cl/" target="_blank" rel="noopener"><img src="img/chilebicipolo.png" alt="Chile Bici Polo"><span>Chile Bici Polo</span></a></li>
-          <li><a href="https://foco.cl" target="_blank" rel="noopener"><img src="img/logo-foco.png" alt="foco.cl"><span>foco.cl · proyectos audiovisuales</span></a></li>
+          <li><a href="https://revistapedalea.com" target="_blank" rel="noopener"><img src="img/aliado-revistapedalea.webp" width="46" height="46" loading="lazy" decoding="async" alt="Revista Pedalea"><span>Revista Pedalea</span></a></li>
+          <li><a href="http://ciclolumpen.cl" target="_blank" rel="noopener"><img src="img/aliado-ciclolumpen.webp" width="46" height="46" loading="lazy" decoding="async" alt="Ciclo Lumpen"><span>Ciclo Lumpen</span></a></li>
+          <li><a href="https://www.facebook.com/Yo-quiero-andar-en-Bicicleta-140569169340311/" target="_blank" rel="noopener"><img src="img/aliado-yoquiero.webp" width="46" height="46" loading="lazy" decoding="async" alt="Yo Quiero Andar en Bicicleta"><span>Yo Quiero Andar en Bicicleta</span></a></li>
+          <li><a href="https://bikepolo.cl/" target="_blank" rel="noopener"><img src="img/chilebicipolo.webp" width="46" height="46" loading="lazy" decoding="async" alt="Chile Bici Polo"><span>Chile Bici Polo</span></a></li>
+          <li><a href="https://foco.cl" target="_blank" rel="noopener"><img src="img/logo-foco.webp" width="46" height="46" loading="lazy" decoding="async" alt="foco.cl"><span>foco.cl · proyectos audiovisuales</span></a></li>
         </ul>
       </div>
     </aside>
